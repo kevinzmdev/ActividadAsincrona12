@@ -1,0 +1,25 @@
+h1{
+    color: #17a2b8;
+    line-height: 75px;
+}
+input,textarea{
+    border-width:0;
+    border-bottom: 3px solid;
+    border-radius: 0; 
+}
+input:focus,textarea:focus{
+    border-radius: .375rem;
+}
+.centrado{
+    display: flex;
+    justify-content: center;
+}
+
+.ng-touched.ng-dirty.ng-invalid::placeholder,
+.ng-dirty.ng-invalid::placeholder ,
+.ng-touched.ng-invalid::placeholder{
+    color: 	#dc3545;
+}
+.ng-touched.ng-dirty.ng-invalid,.ng-dirty.ng-invalid,.ng-touched.ng-invalid{
+    border-color: 	#dc3545;
+}

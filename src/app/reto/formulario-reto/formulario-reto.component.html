@@ -1,0 +1,59 @@
+<section class="container-sm">
+    
+    <h1>BIENVENIDOS</h1>
+    <h2>Form Data</h2>
+
+    <form [formGroup]="registroform" (submit)="send()">
+
+        <section class="form-group m-3">
+            <label class="h4" for="nombres">Nombre</label>
+            <input class="form-control" type="text" formControlName="nombres">
+            <section *ngIf="nombres?.invalid && (nombres?.dirty || nombres?.touched)">
+                <section *ngIf="nombres?.errors?.['required']" class="alert alert-danger">
+                    El Nombre es obligatorio.
+                </section>
+            </section>
+        </section>
+
+        <section class="form-group m-3">
+            <label class="h4" for="apellidos">Apellidos</label>
+            <input class="form-control" type="text" formControlName="apellidos">
+            <section *ngIf="apellidos?.invalid && (apellidos?.dirty || apellidos?.touched)">
+                <section *ngIf="apellidos?.errors?.['required']" class="alert alert-danger">
+                    El Apellido es obligatorio.
+                </section>
+            </section>
+        </section>
+
+        <section class="form-group m-3">
+            <label class="h4" for="dni">DNI</label>
+            <input formControlName="dni" class="form-control" type="text" >
+            <section *ngIf="dni?.invalid && (dni?.dirty || dni?.touched)">
+                <section *ngIf="dni?.errors?.['required']" class="alert alert-danger">
+                    El DNI es obligatorio.
+                </section>
+                <section *ngIf="dni?.errors?.['pattern']" class="alert alert-danger">
+                    El DNI debe ser solo 8 dígitos.
+                </section>
+            </section>
+        </section>
+        
+        
+        <section class="form-group m-3">
+            <label class="h4" for="ciudad">Ciudad:</label>
+            <input class="form-control" type="text" formControlName="ciudad">
+            <section *ngIf="ciudad?.invalid && (ciudad?.dirty || ciudad?.touched)">
+                <section *ngIf="ciudad?.errors?.['required']" class="alert alert-danger">
+                    La ciudad es obligatoria.
+                </section>
+            </section>
+        </section>
+
+        <section class="form-group m-3">
+            <button [disabled]="registroform.invalid" type="submit" class="btn btn-primary m-1">Submit</button>
+        </section>
+        <section *ngIf="registroform.valid">
+            <h3 class="text-primary">¡Registro exitoso!</h3>
+        </section>
+    </form>
+</section>
